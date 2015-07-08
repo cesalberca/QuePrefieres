@@ -1,0 +1,117 @@
+@import "../bower_components/susy/sass/_susy.scss";
+
+$susy: (
+  columns: 12,
+  gutters: 1/4,
+  math: fluid,
+  output: float,
+  gutter-position: inside,
+);
+
+html {
+  background-color: rgba(56, 133, 221, 1);
+}
+
+.main-container {
+  margin-top: 200px;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 50px;
+  font-family: 'Courgette', cursive;
+}
+
+.questions-container {
+  @include container(1024px);
+  height: 250px;
+  text-align: center;
+  .question {
+    @include span(5);
+    font-family: 'Roboto', sans-serif;
+
+    color: rgba(255,255,255,1);
+    font-weight: 400;
+    font-size: 2em;
+    padding: 1.5rem 3rem;
+
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+
+    background-color: rgba(56, 133, 221, 1);
+    border: 1px solid  rgba(56, 133, 221, 1);
+
+    -webkit-box-shadow: 0px 6px 0px rgba(5, 121, 219, 1), 0px 6px 25px rgba(0,0,0,.7);
+    -moz-bpx-shadow: 0px 6px 0px rgba(5, 121, 219, 1), 0px 6px 25px rgba(0,0,0,.7);
+    box-shadow: 0px 6px 0px rgba(5, 121, 219, 1), 0px 6px 25px rgba(0,0,0,.7);
+  	text-align: center;
+
+  	-webkit-transition: all .1s ease;
+  	-moz-transition: all .1s ease;
+  	-ms-transition: all .1s ease;
+  	-o-transition: all .1s ease;
+  	transition: all .1s ease;
+    &:last-child {
+      @include push(2);
+    }
+  }
+
+  .question:active {
+      -webkit-box-shadow: 0px 3px 0px rgba(5, 121, 219, 1), 0px 3px 6px rgba(0,0,0,.9);
+      -moz-box-shadow: 0px 3px 0px rgba(5, 121, 219, 1), 0px 3px 6px rgba(0,0,0,.9);
+      box-shadow: 0px 3px 0px rgba(5, 121, 219, 1), 0px 3px 6px rgba(0,0,0,.9);
+      position: relative;
+      top: 6px;
+  }
+  .question:focus {
+    outline: 0;
+  }
+}
+
+.next-question-container {
+  @include container(1024px);
+  text-align: center;
+
+}
+
+.next-question {
+  @include span(2);
+  float: none;
+  margin-top: 60px;
+  font-size: 1em;
+  padding: 1rem .5rem;
+  color: rgba(255,255,255,1);
+  font-family: 'Roboto', sans-serif;
+
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+
+  background-color: rgba(56, 133, 221, 1);
+  border: 1px solid  rgba(56, 133, 221, 1);
+}
+
+.timer-container {
+  @include container(1024px);
+  text-align: center;
+
+}
+
+.timer {
+  @include span(2);
+  float: none;
+  font-size: 3rem;
+  margin-top: 60px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.number-of-questions {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  color: white;
+  padding: 20px;
+  font-family: 'Roboto', sans-serif;
+}

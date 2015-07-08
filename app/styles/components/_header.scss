@@ -1,0 +1,28 @@
+*{
+ margin: 0;
+}
+#header {
+  width: 100%;
+  background-color: blue;
+  height: 2rem;
+  ul {
+
+  }
+
+  li {
+    display: inline;
+    padding: 1rem 2rem;
+  }
+
+  li:hover {
+    background-color: #eee;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  a:hover{
+    color: red;
+  }
+}

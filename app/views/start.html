@@ -1,0 +1,20 @@
+
+<div class="main-container">
+  <h1>¿Qué preferirías?</h1>
+  <div class="questions-container">
+    <button class="question" ng-click="nextQuestion(); addScore1(); timer()">{{ question1 }}</button>
+    <button class="question" ng-click="nextQuestion(); addScore2(); timer()">{{ question2 }}</button>
+  </div>
+
+  <div class="next-question-container">
+    <button class="next-question" ng-click="nextQuestion(); timer()">Saltar pregunta</button>
+  </div>
+
+  <div class="timer-container">
+    <timer class="timer" interval="1000" countdown="countdownVal" finish-callback="nextQuestion();">{{millis | date:'ss'}}</timer>
+  </div>
+</div>
+
+<p class="number-of-questions"> {{ counter + 1 }} / {{ totalQuestions }}</p>
+<!-- <p>{{ totalScore }}</p> -->
+<p ng-show="isEnd"> Fin del juego</p>
