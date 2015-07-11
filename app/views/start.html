@@ -17,4 +17,6 @@
 
 <p class="number-of-questions"> {{ counter + 1 }} / {{ totalQuestions }}</p>
 <p>{{ totalScore }}</p>
-<p ng-show="isEnd"> Fin del juego</p>
+<div ng-show="isEnd" class="modal-endgame">
+  <a href="#/end">Ver puntuación</a>
+</div>

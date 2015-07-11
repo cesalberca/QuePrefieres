@@ -7,11 +7,14 @@
  * Controller of the quePrefieresApp
  */
 angular.module('quePrefieresApp')
-  .controller('StartCtrl', function ($scope) {
+  .controller('StartCtrl', function ($scope, $window) {
+
+
     $scope.totalScore = 0;
     $scope.counter = 0;
 
     $scope.isEnd = false;
+
 
     // Function to shuffle array
     function shuffle(array) {
@@ -64,72 +67,72 @@ angular.module('quePrefieresApp')
         score1: 0,
         score2: 1
       },
-      {
-        q1: '¿Tener 3 deseos pero no poder pedir dinero?',
-        q2: '¿Tener un billón de euros?',
-        score1: 1,
-        score2: 0
-      },
-      {
-        q1: '¿Viajar al pasado y cambiar algo personal?',
-        q2: '¿Viajar al pasado y cambiar el curso de la historia?',
-        score1: 0,
-        score2: 1
-      },
-      {
-        q1: '¿Decir siempre la verdad?',
-        q2: 'Contar siempre mentiras?',
-        score1: 1,
-        score2: 0
-      },
-      {
-        q1: '¿Encontrar el amor verdadero?',
-        q2: '¿Ganar la lotería?',
-        score1: 1,
-        score2: 0
-      },
-      {
-        q1: 'Sacrificarte para salvar la vida a 100.000 desconocidos sin saber ellos que les has salvado la vida?',
-        q2: '¿Vivir pero que todo el mundo sepa que no diste tu vida por esos 100.000 desconocidos?',
-        score1: 1,
-        score2: 0
-      },
-      {
-        q1: '¿Que la gente tuviese un respeto sobrecogedor por ti?',
-        q2: '¿Tener poder ilimitado?',
-        score1: 1,
-        score2: 0
-      },
-      {
-        q1: '¿Morir feliz en 5 años?',
-        q2: '¿Morir infeliz en 60 años?',
-        score1: 1,
-        score2: 0
-      },
-      {
-        q1: '¿Oler a mierda y no saberlo?',
-        q2: '¿Oler mierda constantemente que nadie más puede oler?',
-        score1: 0,
-        score2: 1
-      },
-      {
-        q1: '¿Ser insultado todos los días?',
-        q2: '¿Insultar a alguien a quien quieres todos los días?',
-        score1: 1,
-        score2: 0
-      },
-      {
-        q1: '¿Decir siempre lo que se te pase por la cabeza?',
-        q2: '¿Nunca decir lo que en verdad piensas?',
-        score1: 0,
-        score2: 1
-      },
-      {
-        q1: '¿Volver al pasado y matar a Hitler antes del Holocausto?',
-        q2: '¿Revivir 5 personas muertas a tu elección?',
-        score1: 1,
-        score2: 0
-      }
+      // {
+      //   q1: '¿Tener 3 deseos pero no poder pedir dinero?',
+      //   q2: '¿Tener un billón de euros?',
+      //   score1: 1,
+      //   score2: 0
+      // },
+      // {
+      //   q1: '¿Viajar al pasado y cambiar algo personal?',
+      //   q2: '¿Viajar al pasado y cambiar el curso de la historia?',
+      //   score1: 0,
+      //   score2: 1
+      // },
+      // {
+      //   q1: '¿Decir siempre la verdad?',
+      //   q2: 'Contar siempre mentiras?',
+      //   score1: 1,
+      //   score2: 0
+      // },
+      // {
+      //   q1: '¿Encontrar el amor verdadero?',
+      //   q2: '¿Ganar la lotería?',
+      //   score1: 1,
+      //   score2: 0
+      // },
+      // {
+      //   q1: 'Sacrificarte para salvar la vida a 100.000 desconocidos sin saber ellos que les has salvado la vida?',
+      //   q2: '¿Vivir pero que todo el mundo sepa que no diste tu vida por esos 100.000 desconocidos?',
+      //   score1: 1,
+      //   score2: 0
+      // },
+      // {
+      //   q1: '¿Que la gente tuviese un respeto sobrecogedor por ti?',
+      //   q2: '¿Tener poder ilimitado?',
+      //   score1: 1,
+      //   score2: 0
+      // },
+      // {
+      //   q1: '¿Morir feliz en 5 años?',
+      //   q2: '¿Morir infeliz en 60 años?',
+      //   score1: 1,
+      //   score2: 0
+      // },
+      // {
+      //   q1: '¿Oler a mierda y no saberlo?',
+      //   q2: '¿Oler mierda constantemente que nadie más puede oler?',
+      //   score1: 0,
+      //   score2: 1
+      // },
+      // {
+      //   q1: '¿Ser insultado todos los días?',
+      //   q2: '¿Insultar a alguien a quien quieres todos los días?',
+      //   score1: 1,
+      //   score2: 0
+      // },
+      // {
+      //   q1: '¿Decir siempre lo que se te pase por la cabeza?',
+      //   q2: '¿Nunca decir lo que en verdad piensas?',
+      //   score1: 0,
+      //   score2: 1
+      // },
+      // {
+      //   q1: '¿Volver al pasado y matar a Hitler antes del Holocausto?',
+      //   q2: '¿Revivir 5 personas muertas a tu elección?',
+      //   score1: 1,
+      //   score2: 0
+      // }
     ];
 
     shuffle($scope.questions);
@@ -153,8 +156,8 @@ angular.module('quePrefieresApp')
         }
       } else {
         $scope.isEnd = true;
+        $window.location.href = '#/end';
         $scope.stopClock();
-        $scope.endGame();
       }
     };
 
@@ -172,42 +175,7 @@ angular.module('quePrefieresApp')
       }
     };
 
-    // Score module
-    $scope.percentageScore = 0;
 
-    $scope.endGame = function () {
-
-      // Percentage of the score
-      $scope.percentageScore =  ($scope.totalScore / $scope.questions.length) * 100;
-      $scope.typeOfPerson = '';
-
-      // Score calculator
-      if ($scope.percentageScore >= 0 && $scope.percentageScore <= 10) {
-          $scope.typeOfPerson = 'Estás vací@ por dentro';
-      } else if ($scope.percentageScore > 10 && $scope.percentageScore <= 20) {
-          $scope.typeOfPerson = 'No eres alguien que presentaría a mis padres, ni a nadie.';
-      } else if ($scope.percentageScore > 20 && $scope.percentageScore <= 30) {
-          $scope.typeOfPerson = 'Hay atisbos de esperanza, pero aún así eres alguien con un corazón podrido.';
-      } else if ($scope.percentageScore > 30 && $scope.percentageScore <= 40) {
-          $scope.typeOfPerson = 'No me jodas, o te jodo. Bueno, de hecho te voy a joder. Ese es tu lema por la vida.';
-      } else if ($scope.percentageScore > 40 && $scope.percentageScore <= 50) {
-          $scope.typeOfPerson = 'Casi casi eres medio persona, ¡sigue intentándolo, proyecto de ser humano!';
-      } else if ($scope.percentageScore > 50 && $scope.percentageScore <= 60) {
-          $scope.typeOfPerson = 'Aprobado raspado. Un poco peor y serías de los malos. O eso te crees tú.';
-      } else if ($scope.percentageScore > 60 && $scope.percentageScore <= 70) {
-          $scope.typeOfPerson = 'En fin, alguien un pelín decente tendría que haber después de todo. Me refería a mi, tú sigues siendo del montón.';
-      } else if ($scope.percentageScore > 70 && $scope.percentageScore <= 80) {
-          $scope.typeOfPerson = '¿Por qué has mentido en las preguntas? Bueno... Supongo que te tendré que creerte, nadie mentiría por internet, ¿no? Quizás seas algo decente.';
-      } else if ($scope.percentageScore > 80 && $scope.percentageScore <= 90) {
-          $scope.typeOfPerson = 'Bueno, bueno, aquí el ser moral superior, que sepas que eso te baja puntos, creíd@.';
-      } else if ($scope.percentageScore > 90 && $scope.percentageScore <= 100) {
-          $scope.typeOfPerson = 'Ni yo consigo esta puntuación, así que asumiré que has hecho trampas o has tenido mucha mucha suerte, suerte que necesitarás para que no te dé de palos por romperme el juego.';
-      }
-
-      // Working on final score display
-      console.log($scope.typeOfPerson);
-      console.log($scope.percentageScore);
-    };
 
     // Timer code
     $scope.countdownVal = 10;

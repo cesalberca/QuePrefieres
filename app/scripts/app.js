@@ -32,6 +32,10 @@ angular
         templateUrl: 'views/start.html',
         controller: 'StartCtrl'
       })
+      .when('/end', {
+        templateUrl: 'views/end.html',
+        controller: 'EndCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
