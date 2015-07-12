@@ -7,16 +7,18 @@
  * Controller of the quePrefieresApp
  */
 angular.module('quePrefieresApp')
-  .controller('EndCtrl', function ($scope) {
+  .controller('EndCtrl', function ($scope, totalQuestions, totalScore) {
+
+    // Service for totalQuestions
+    $scope.totalScore = totalScore.getTotalScore();
+    $scope.totalQuestions = totalQuestions.getTotalQuestions();
     // Score module
     $scope.percentageScore = 0;
+    $scope.percentageScore =  ($scope.totalScore / $scope.totalQuestions) * 100;
+    $scope.typeOfPerson = '';
 
     $scope.endGame = function () {
-
       // Percentage of the score
-      $scope.percentageScore =  ($scope.totalScore / $scope.questions.length) * 100;
-      $scope.typeOfPerson = '';
-
       // Score calculator
       if ($scope.percentageScore >= 0 && $scope.percentageScore <= 10) {
           $scope.typeOfPerson = 'Estás vací@ por dentro';
@@ -39,9 +41,5 @@ angular.module('quePrefieresApp')
       } else if ($scope.percentageScore > 90 && $scope.percentageScore <= 100) {
           $scope.typeOfPerson = 'Ni yo consigo esta puntuación, así que asumiré que has hecho trampas o has tenido mucha mucha suerte, suerte que necesitarás para que no te dé de palos por romperme el juego.';
       }
-
-      // Working on final score display
-      console.log($scope.typeOfPerson);
-      console.log($scope.percentageScore);
     };
   });
