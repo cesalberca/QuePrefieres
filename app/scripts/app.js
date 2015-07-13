@@ -18,43 +18,29 @@ angular
     'ngTouch',
     'timer'
   ])
-  .service('totalQuestions', function () {
+  .factory('sharedData', function () {
     var totalQuestions = 0;
+    var totalScore = 0;
 
     return {
       getTotalQuestions: function () {
         return totalQuestions;
       },
-
       setTotalQuestions: function(value) {
         totalQuestions = value;
-      }
-    };
-  })
-  .service('totalScore', function () {
-    var totalScore = 0;
-
-    return {
+      },
       getTotalScore: function () {
         return totalScore;
       },
-
       setTotalScore: function(value) {
         totalScore = value;
+      },
+      addTotalScore: function(value) {
+        totalScore += value;
       }
     };
   })
 
-  // .factory('TotalScore', function(){
-  //   var Score = {
-  //     totalScore: 0
-  //   };
-  //   return {
-  //     getScore: function() {
-  //       return Score;
-  //     },
-  //   };
-  // })
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {

@@ -7,7 +7,7 @@
  * Controller of the quePrefieresApp
  */
 angular.module('quePrefieresApp')
-  .controller('StartCtrl', function ($scope, $window, totalQuestions, totalScore) {
+  .controller('StartCtrl', function ($scope, $window, sharedData) {
 
 
     $scope.counter = 0;
@@ -121,8 +121,8 @@ angular.module('quePrefieresApp')
       {
         q1: '¿Decir siempre lo que se te pase por la cabeza?',
         q2: '¿Nunca decir lo que en verdad piensas?',
-        score1: 0,
-        score2: 1
+        score1: 1,
+        score2: 0
       },
       {
         q1: '¿Volver al pasado y matar a Hitler antes del Holocausto?',
@@ -140,76 +140,81 @@ angular.module('quePrefieresApp')
     $scope.question2 = $scope.questions[$scope.counter].q2;
 
     // Service for the total number of questions, so it can get accessed in end.js
-    $scope.setTotalQuestions = totalQuestions.setTotalQuestions($scope.questions.length);
-    $scope.setTotalScore = totalScore.setTotalScore($scope.totalScore);
-
-
+    $scope.setTotalQuestions = sharedData.setTotalQuestions($scope.questions.length);
 
     // Controller to change to nextQuestion
     $scope.nextQuestion = function () {
       // If there are enought questions on the array, iterate throught them
       if ($scope.counter < $scope.questions.length - 1) {
+        // Iteration throught the questions
         $scope.counter++;
+
+        // Binding the questions in order to use it in expressions
         $scope.question1 = $scope.questions[$scope.counter].q1;
         $scope.question2 = $scope.questions[$scope.counter].q2;
+
+        // Full reset timer
         $scope.timer();
+
         //  This is a future bug
         if(!$scope.$$phase) {
           $scope.$apply();
         }
       } else {
-        $scope.isEnd = true;
-        $window.location.href = '#/end';
+        // $scope.isEnd = true;
         $scope.stopClock();
+        $window.location.href = '#/end';
+        console.log($scope.totalScore);
       }
     };
-    
-    $scope.totalScore = 0;
+
+    // Assigning the totalScore variable from sharedData
+    $scope.totalScore = sharedData.getTotalScore();
+    console.log($scope.totalScore);
 
     // Function to add score in case user press the question 1 button
     $scope.addScore1 = function () {
       if (!$scope.isEnd) {
-        $scope.totalScore += $scope.questions[$scope.counter-1].score1;
+        // This updates the var totalScore from the service sharedData using the function addTotalScore
+        $scope.totalScore = sharedData.addTotalScore($scope.questions[$scope.counter-1].score1);
         console.log($scope.totalScore);
-        console.log($scope.setTotalScore);
       }
     };
 
     // Function to add score in case user press the question 2 button
     $scope.addScore2 = function () {
       if (!$scope.isEnd) {
-        $scope.totalScore += $scope.questions[$scope.counter-1].score2;
+        // Same as addScore1
+        $scope.totalScore = sharedData.addTotalScore($scope.questions[$scope.counter-1].score2);
+        console.log($scope.totalScore);
       }
     };
 
-
-
-
     // Timer code
     $scope.countdownVal = 10;
-    $scope.timerRunning = true;
+    var timerRunning = true;
     var timeStarted = false;
 
     $scope.startClock = function() {
       if (!timeStarted) {
           $scope.$broadcast('timer-start');
-          $scope.timerRunning = true;
+          timerRunning = true;
           timeStarted = true;
-      } else if ((timeStarted) && (!$scope.timerRunning)) {
+      } else if ((timeStarted) && (!timerRunning)) {
           $scope.$broadcast('timer-resume');
-          $scope.timerRunning = true;
+          timerRunning = true;
       }
     };
 
     $scope.stopClock = function() {
-      if ((timeStarted) && ($scope.timerRunning)) {
+      if ((timeStarted) && (timerRunning)) {
           $scope.$broadcast('timer-stop');
-          $scope.timerRunning = false;
+          timerRunning = false;
       }
     };
 
     $scope.resetClock = function() {
-      if ((!$scope.timerRunning)) {
+      if ((!timerRunning)) {
           $scope.$broadcast('timer-reset');
       }
     };
@@ -226,5 +231,4 @@ angular.module('quePrefieresApp')
         $scope.startClock();
       }
     };
-
   });

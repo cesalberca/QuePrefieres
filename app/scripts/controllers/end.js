@@ -7,18 +7,18 @@
  * Controller of the quePrefieresApp
  */
 angular.module('quePrefieresApp')
-  .controller('EndCtrl', function ($scope, totalQuestions, totalScore) {
+  .controller('EndCtrl', function ($scope, sharedData) {
 
     // Service for totalQuestions
-    $scope.totalScore = totalScore.getTotalScore();
-    $scope.totalQuestions = totalQuestions.getTotalQuestions();
+    $scope.totalScore = sharedData.getTotalScore();
+    console.log($scope.totalScore);
+    $scope.totalQuestions = sharedData.getTotalQuestions();
     // Score module
     $scope.percentageScore = 0;
     $scope.percentageScore =  ($scope.totalScore / $scope.totalQuestions) * 100;
     $scope.typeOfPerson = '';
 
     $scope.endGame = function () {
-      // Percentage of the score
       // Score calculator
       if ($scope.percentageScore >= 0 && $scope.percentageScore <= 10) {
           $scope.typeOfPerson = 'Estás vací@ por dentro';
