@@ -53,12 +53,6 @@ angular.module('quePrefieresApp')
         score2: 0
       },
       {
-        q1: '¿Salvar a tu madre?',
-        q2: '¿Salvar a tu padre?',
-        score1: 1,
-        score2: 1
-      },
-      {
         q1: '¿Salvar a tu mascota?',
         q2: '¿Salvar a un desconocido?',
         score1: 0,
@@ -78,7 +72,7 @@ angular.module('quePrefieresApp')
       },
       {
         q1: '¿Decir siempre la verdad?',
-        q2: 'Contar siempre mentiras?',
+        q2: '¿Contar siempre mentiras?',
         score1: 1,
         score2: 0
       },
@@ -89,7 +83,7 @@ angular.module('quePrefieresApp')
         score2: 0
       },
       {
-        q1: 'Sacrificarte para salvar la vida a 100.000 desconocidos sin saber ellos que les has salvado la vida?',
+        q1: '¿Sacrificarte para salvar la vida a 100.000 desconocidos sin saber ellos que les has salvado la vida?',
         q2: '¿Vivir pero que todo el mundo sepa que no diste tu vida por esos 100.000 desconocidos?',
         score1: 1,
         score2: 0
@@ -129,6 +123,90 @@ angular.module('quePrefieresApp')
         q2: '¿Revivir 5 personas muertas a tu elección?',
         score1: 1,
         score2: 0
+      },
+      {
+        q1: '¿Ser feo pero inteligente?',
+        q2: '¿Ser guapo pero tonto?',
+        score1: 1,
+        score2: 0
+      },
+      {
+        q1: '¿Que el alchohol o las drogas no te afectasen negativamente?',
+        q2: '¿Que la comida insana fuese súper sana y nutritiva?',
+        score1: 0,
+        score2: 1
+      },
+      {
+        q1: '¿Salvar a una persona que conoces de una muerte segura?',
+        q2: '¿Salvar a 1.000 desconocidos que nunca conocerás de una muerte segura?',
+        score1: 0,
+        score2: 1
+      },
+      {
+        q1: '¿Salvar a tu hijo?',
+        q2: '¿Salvar a tus padres?',
+        score1: 0,
+        score2: 1
+      },
+      {
+        q1: '¿Acabar con el hambre en el mundo?',
+        q2: '¿Ganar 1.000.000 de euros?',
+        score1: 0,
+        score2: 1
+      },
+      {
+        q1: '¿Tener sexo con una celebridad de tu elección aún estando casado?',
+        q2: '¿O no hacerlo?',
+        score1: 0,
+        score2: 1
+      },
+      {
+        q1: '¿Nunca llegar bien a fin de mes pero conocer a tu media naranja?',
+        q2: '¿Ser extremadamente rico pero no llegar a conocer a tu media naranja?',
+        score1: 1,
+        score2: 0
+      },
+      {
+        q1: '¿Estar siempre bien de dinero?',
+        q2: '¿Estar siempre bien emocionalmente?',
+        score1: 0,
+        score2: 1
+      },
+      {
+        q1: '¿Tener un trabajo muy aburrido pero bien pagado?',
+        q2: '¿Tener un trabajo muy interesante pero mal pagado?',
+        score1: 0,
+        score2: 1
+      },
+      {
+        q1: '¿Ser un prolífico y poco conocido científico que ayuda a millones de personas con sus descubrimientos?',
+        q2: '¿Ser un actor/actriz guap@, famos@ y ric@ que sólo participa en roles triviales?',
+        score1: 0,
+        score2: 1
+      },
+      {
+        q1: '¿Aumentar la esperanza de vida de todo el mundo en 10 años a costa de perder la mitad de tus años de vida restantes?',
+        q2: '¿Poder parar el tiempo a conciencia pero reducir tu esperanza de vida a la mitad?',
+        score1: 1,
+        score2: 0
+      },
+      {
+        q1: '¿Que alguien aleatorio se convirtiese adicto a la heroína?',
+        q2: '¿Estar dos semanas drogándote con heroína sabiendo que te podrías volver adicto?',
+        score1: 0,
+        score2: 1
+      },
+      {
+        q1: '¿Poder revertir un asesinato cualquiera cada día?',
+        q2: '¿Poder revertir una decisión tuya cada día?',
+        score1: 1,
+        score2: 0
+      },
+      {
+        q1: '¿Ganar 50.000€?',
+        q2: '¿Que tu mejor amig@ gane 500.000€, sin poder repartir el premio?',
+        score1: 1,
+        score2: 0
       }
     ];
 
@@ -139,8 +217,9 @@ angular.module('quePrefieresApp')
     $scope.question1 = $scope.questions[$scope.counter].q1;
     $scope.question2 = $scope.questions[$scope.counter].q2;
 
-    // Service for the total number of questions, so it can get accessed in end.js
+    // Service to assign the total number of questions, so it can get accessed in end.js
     $scope.setTotalQuestions = sharedData.setTotalQuestions($scope.questions.length);
+    $scope.totalQuestions = sharedData.getTotalQuestions();
 
     // Controller to change to nextQuestion
     $scope.nextQuestion = function () {
@@ -191,7 +270,7 @@ angular.module('quePrefieresApp')
     };
 
     // Timer code
-    $scope.countdownVal = 10;
+    $scope.countdownVal = 15;
     var timerRunning = true;
     var timeStarted = false;
 

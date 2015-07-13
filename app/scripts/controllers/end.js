@@ -11,7 +11,6 @@ angular.module('quePrefieresApp')
 
     // Service for totalQuestions
     $scope.totalScore = sharedData.getTotalScore();
-    console.log($scope.totalScore);
     $scope.totalQuestions = sharedData.getTotalQuestions();
     // Score module
     $scope.percentageScore = 0;
