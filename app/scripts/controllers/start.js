@@ -143,12 +143,6 @@ angular.module('quePrefieresApp')
         score2: 1
       },
       {
-        q1: '¿Salvar a tu hijo?',
-        q2: '¿Salvar a tus padres?',
-        score1: 0,
-        score2: 1
-      },
-      {
         q1: '¿Acabar con el hambre en el mundo?',
         q2: '¿Ganar 1.000.000 de euros?',
         score1: 0,
@@ -205,8 +199,20 @@ angular.module('quePrefieresApp')
       {
         q1: '¿Ganar 50.000€?',
         q2: '¿Que tu mejor amig@ gane 500.000€, sin poder repartir el premio?',
+        score1: 0,
+        score2: 1
+      },
+      {
+        q1: '¿Salvar a un niño en peligro, pero ser catalogado como pedófilo?',
+        q2: '¿Dejar que el niño muera pero que todo el mundo piense que eres un héroe por haberlo intentado salvar?',
         score1: 1,
         score2: 0
+      },
+      {
+        q1: '¿Poder hablar con los muertos?',
+        q2: '¿Poder prevenir muertes?',
+        score1: 0,
+        score2: 1
       }
     ];
 
