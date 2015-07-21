@@ -8,9 +8,9 @@
 ## Installation
 
 You will need [NodeJS](), [Git]() and [Ruby](). As well as some frameworks from NPM: (Which is the package manager from Node)
-* [Bower](bower.io): `npm install -g yo bower`
-* [Grunt](grunt.com): `npm install -g grunt-cli`
-* [Yeoman](yeoman.io): `npm install -g yo`
+* [Bower](http//:www.bower.io): `npm install -g yo bower`
+* [Grunt](http//:www.grunt.com): `npm install -g grunt-cli`
+* [Yeoman](http//:www.yeoman.io): `npm install -g yo`
 
 More over you will need to install the Angular generator for Yeoman
 * `npm install -g generator-yo`

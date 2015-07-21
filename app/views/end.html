@@ -1,5 +1,14 @@
-<span ng-init="endGame()"></span>
-<p>totalScore {{ totalScore }}</p>
-<p>typeOfPerson {{ typeOfPerson }}</p>
-<p>totalQuestions {{ totalQuestions }}</p>
-<p>percentageScore {{ percentageScore }}</p>
+<section ng-init="endGame()" class="type-of-person-container">
+  <div class="type-of-person">
+    <p >{{ typeOfPerson }}</p>
+    <div class="social">
+      <a class="repeat" href="#/start"><i class="fa fa-refresh"></i>Repetir</a>
+      <div class="share-container">
+        <span>Compartir en:</span>
+          <div class="fb-share-button" data-href="https://queprefieres.com/" data-layout="icon"></div>
+          <a class="twitter-share-button" target="_blank" href="https://twitter.com/intent/tweet?text=¡Mira%20qué%20página%20más%20chula!">
+<i class="fa fa-twitter"></i></a>
+      </div>
+    </div>
+  </div>
+</section>

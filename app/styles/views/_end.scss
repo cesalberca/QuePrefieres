@@ -1,0 +1,45 @@
+.type-of-person-container {
+  @include container(1024px);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.type-of-person {
+  font-family: 'Roboto', sans-serif;
+
+
+  @include span(6);
+  float: none;
+
+  padding: 2rem;
+  border-radius: 5px;
+  background-color: white;
+
+  -webkit-box-shadow: 0px 6px 25px rgba(0,0,0,.7);
+  -moz-bpx-shadow: 0px 6px 25px rgba(0,0,0,.7);
+  box-shadow: 0px 6px 25px rgba(0,0,0,.7);
+  p {
+    font-size: 1.3rem;
+    line-height: 1.7rem;
+  }
+}
+
+.social {
+  @include container(100%);
+  margin-top: 2rem;
+  .share-container, .repeat{
+    @include span(6);
+    text-decoration: none;
+    color: black;
+    a:hover {
+      color: blue;
+    }
+    i {
+      padding-right: .75rem;
+    }
+
+  }
+}

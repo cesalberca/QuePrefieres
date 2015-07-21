@@ -40,7 +40,6 @@ angular
       }
     };
   })
-
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
