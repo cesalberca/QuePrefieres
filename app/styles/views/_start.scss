@@ -1,4 +1,3 @@
-
 html {
   background-color: rgba(56, 133, 221, 1);
 }
@@ -9,9 +8,25 @@ html {
 
 h1 {
   text-align: center;
+  font-size: 3rem;
   margin-top: 30px;
-  margin-bottom: 50px;
+  margin-bottom: 75px;
   font-family: 'Courgette', cursive;
+  color: #EFF7FF;
+  text-shadow: 4px 2px #1E6AC0,
+               0 6px 1px rgba(0, 0, 0, 0.1),
+               0 0 0px rgba(0, 0, 0, 0.1),
+               0 0px 0px rgba(0, 0, 0, 0.2),
+               0 3px 10px rgba(0, 0, 0, 0.25),
+               0 -3px 10px rgba(0, 0, 0, 0.2),
+               0 11px 20px rgba(0, 0, 0, 0.15);
+
+  -moz-transform: scale(1) rotate(0deg) translate(0px, 0px) skew(-5deg, -5deg);
+  -webkit-transform: scale(1) rotate(0deg) translate(0px, 0px) skew(-5deg, -5deg);
+  -o-transform: scale(1) rotate(0deg) translate(0px, 0px) skew(-5deg, -5deg);
+  -ms-transform: scale(1) rotate(0deg) translate(0px, 0px) skew(-5deg, -5deg);
+  transform: scale(1) rotate(0deg) translate(0px, 0px) skew(-5deg, -5deg);
+
 }
 
 .questions-container {
@@ -22,12 +37,12 @@ h1 {
   .question {
     @include span(5);
     font-family: 'Roboto', sans-serif;
-
-    color: rgba(255,255,255,1);
+    text-align: center;
     font-weight: 400;
     font-size: 2em;
-    padding: 1.5rem 3rem;
 
+    color: rgba(255,255,255,1);
+    padding: 1.5rem 3rem;
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
     border-radius: 8px;
@@ -38,7 +53,6 @@ h1 {
     -webkit-box-shadow: 0px 6px 0px rgba(5, 121, 219, 1), 0px 6px 25px rgba(0,0,0,.7);
     -moz-bpx-shadow: 0px 6px 0px rgba(5, 121, 219, 1), 0px 6px 25px rgba(0,0,0,.7);
     box-shadow: 0px 6px 0px rgba(5, 121, 219, 1), 0px 6px 25px rgba(0,0,0,.7);
-  	text-align: center;
 
   	-webkit-transition: all .1s ease;
   	-moz-transition: all .1s ease;
@@ -49,7 +63,6 @@ h1 {
       @include push(2);
     }
   }
-
   .question:active {
       -webkit-box-shadow: 0px 3px 0px rgba(5, 121, 219, 1), 0px 3px 6px rgba(0,0,0,.9);
       -moz-box-shadow: 0px 3px 0px rgba(5, 121, 219, 1), 0px 3px 6px rgba(0,0,0,.9);
@@ -57,7 +70,7 @@ h1 {
       position: relative;
       top: 6px;
   }
-  
+
   .question:focus {
     outline: 0;
   }
@@ -66,7 +79,6 @@ h1 {
 .next-question-container {
   @include container(1024px);
   text-align: center;
-
 }
 
 .next-question {
@@ -75,21 +87,35 @@ h1 {
   margin-top: 60px;
   font-size: 1em;
   padding: 1rem .5rem;
-  color: rgba(255,255,255,1);
+  color: #126CB8;
   font-family: 'Roboto', sans-serif;
 
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  border-radius: 8px;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  border-radius: 100px;
 
   background-color: rgba(56, 133, 221, 1);
-  border: 1px solid  rgba(56, 133, 221, 1);
+	border: 2px solid #0579DB !important;
+	// text-shadow: 0px -2px rgba(5, 121, 219, 1);
+
+	transition: all 0.1s;
+	-webkit-transition: all 0.1s;
+}
+
+.next-question:active{
+  transform: translate(0px,5px);
+  -webkit-transform: translate(0px,5px);
+	border-bottom: 1px solid;
+}
+
+.next-question:focus {
+  outline: 0;
 }
 
 .timer-container {
   @include container(1024px);
   text-align: center;
-
+  color: #212121;
 }
 
 .timer {
@@ -105,6 +131,6 @@ h1 {
   bottom: 0;
   right: 0;
   color: white;
-  padding: 20px;
+  padding: 5px 10px;
   font-family: 'Roboto', sans-serif;
 }

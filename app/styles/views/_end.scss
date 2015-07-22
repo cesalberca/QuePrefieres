@@ -33,12 +33,19 @@
   .share-container, .repeat{
     @include span(6);
     text-decoration: none;
-    color: black;
+
     a:hover {
       color: blue;
     }
     i {
       padding-right: .75rem;
+      color: #55acee;
+    }
+    i:hover {
+
+    }
+    i:visited {
+
     }
 
   }
