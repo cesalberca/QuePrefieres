@@ -1,6 +1,8 @@
 
 <div class="main-container">
-  <h1>¿Qué preferirías?</h1>
+  <div class="que-preferirias-container">
+    <h1 class="que-preferirias">¿Qué preferirías?</h1>
+  </div>
   <div class="questions-container">
     <button class="question" ng-disabled="isEnd" ng-click="nextQuestion(); addScore1(); timer()">{{ question1 }}</button>
     <button class="question" ng-disabled="isEnd" ng-click="nextQuestion(); addScore2(); timer()">{{ question2 }}</button>

@@ -9,7 +9,6 @@
 angular.module('quePrefieresApp')
   .controller('StartCtrl', function ($scope, $window, sharedData) {
 
-
     $scope.counter = 0;
     $scope.isEnd = false;
 
@@ -35,18 +34,6 @@ angular.module('quePrefieresApp')
     // Array of the questions and its properties
     $scope.questions = [
       {
-        q1: '¿No tener brazos?',
-        q2: '¿No tener piernas?',
-        score1: 1,
-        score2: 1
-      },
-      {
-        q1: '¿Salir con un/una famos@?',
-        q2: '¿Salir con alguien que te guste?',
-        score1: 0,
-        score2: 1
-      },
-      {
         q1: '¿Ir al pasado a conocer a tus bis bis abuelos?',
         q2: '¿Ir al futuro a conocer a tus bis bis nietos?',
         score1: 1,
@@ -60,7 +47,7 @@ angular.module('quePrefieresApp')
       },
       {
         q1: '¿Tener 3 deseos pero no poder pedir dinero?',
-        q2: '¿Tener un billón de euros?',
+        q2: '¿Tener un 10 millones de euros?',
         score1: 1,
         score2: 0
       },
@@ -72,13 +59,7 @@ angular.module('quePrefieresApp')
       },
       {
         q1: '¿Decir siempre la verdad?',
-        q2: '¿Contar siempre mentiras?',
-        score1: 1,
-        score2: 0
-      },
-      {
-        q1: '¿Encontrar el amor verdadero?',
-        q2: '¿Ganar la lotería?',
+        q2: 'Decir siempre medio-verdades?',
         score1: 1,
         score2: 0
       },
@@ -90,13 +71,7 @@ angular.module('quePrefieresApp')
       },
       {
         q1: '¿Que la gente tuviese un respeto sobrecogedor por ti?',
-        q2: '¿Tener poder ilimitado?',
-        score1: 1,
-        score2: 0
-      },
-      {
-        q1: '¿Morir feliz en 5 años?',
-        q2: '¿Morir infeliz en 60 años?',
+        q2: '¿Tener poder y reconocimiento?',
         score1: 1,
         score2: 0
       },
@@ -108,7 +83,7 @@ angular.module('quePrefieresApp')
       },
       {
         q1: '¿Ser insultado todos los días?',
-        q2: '¿Insultar a alguien a quien quieres todos los días?',
+        q2: '¿Insultar a alguien que tuviese un mal día todos los días?',
         score1: 1,
         score2: 0
       },
@@ -125,8 +100,8 @@ angular.module('quePrefieresApp')
         score2: 0
       },
       {
-        q1: '¿Ser feo pero inteligente?',
-        q2: '¿Ser guapo pero tonto?',
+        q1: '¿Ser fe@ pero inteligente?',
+        q2: '¿Ser guap@ pero tont@?',
         score1: 1,
         score2: 0
       },
@@ -144,7 +119,7 @@ angular.module('quePrefieresApp')
       },
       {
         q1: '¿Acabar con el hambre en el mundo?',
-        q2: '¿Ganar 1.000.000 de euros?',
+        q2: '¿Ser inmortal?',
         score1: 0,
         score2: 1
       },
@@ -186,7 +161,7 @@ angular.module('quePrefieresApp')
       },
       {
         q1: '¿Que alguien aleatorio se convirtiese adicto a la heroína?',
-        q2: '¿Estar dos semanas drogándote con heroína sabiendo que te podrías volver adicto?',
+        q2: '¿Estar dos semanas consumiendo heroína a sabiendas que te podrías volver adicto?',
         score1: 0,
         score2: 1
       },
@@ -249,20 +224,17 @@ angular.module('quePrefieresApp')
         // $scope.isEnd = true;
         $scope.stopClock();
         $window.location.href = '#/end';
-        console.log($scope.totalScore);
       }
     };
 
     // Assigning the totalScore variable from sharedData
     $scope.totalScore = sharedData.getTotalScore();
-    console.log($scope.totalScore);
 
     // Function to add score in case user press the question 1 button
     $scope.addScore1 = function () {
       if (!$scope.isEnd) {
         // This updates the var totalScore from the service sharedData using the function addTotalScore
         $scope.totalScore = sharedData.addTotalScore($scope.questions[$scope.counter-1].score1);
-        console.log($scope.totalScore);
       }
     };
 
@@ -271,12 +243,11 @@ angular.module('quePrefieresApp')
       if (!$scope.isEnd) {
         // Same as addScore1
         $scope.totalScore = sharedData.addTotalScore($scope.questions[$scope.counter-1].score2);
-        console.log($scope.totalScore);
       }
     };
 
     // Timer code
-    $scope.countdownVal = 15;
+    $scope.countdownVal = 60;
     var timerRunning = true;
     var timeStarted = false;
 
@@ -316,4 +287,30 @@ angular.module('quePrefieresApp')
         $scope.startClock();
       }
     };
-  });
+
+    // Button cursor highlight
+    $(function() {
+			var originalBGplaypen = $('.question').css('background-color'),
+			    x, y, xy, bgWebKit, bgMoz,
+			    lightColor = 'rgba(93, 158, 232, 0.52)',
+			    gradientSize = 200;
+
+				// Basic Demo
+				$('.question').mousemove(function(e) {
+
+					x  = e.pageX - this.offsetLeft;
+					y  = e.pageY - this.offsetTop;
+					xy = x + ' ' + y;
+
+					bgWebKit = '-webkit-gradient(radial, ' + xy + ', 0, ' + xy + ', ' + gradientSize + ', from(' + lightColor + '), to(rgba(255,255,255,0.0))), ' + originalBGplaypen;
+					bgMoz    = '-moz-radial-gradient(' + x + 'px ' + y + 'px 45deg, circle, ' + lightColor + ' 0%, ' + originalBGplaypen + ' ' + gradientSize + 'px)';
+
+					$(this)
+						.css({ background: bgWebKit })
+						.css({ background: bgMoz });
+
+				}).mouseleave(function() {
+					$(this).css({ background: originalBGplaypen });
+				});
+    });
+});
