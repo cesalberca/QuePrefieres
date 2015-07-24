@@ -6,7 +6,11 @@ html {
   margin-top: 200px;
 }
 
-h1 {
+.que-preferirias-container {
+  @include container(1024px);
+}
+
+.que-preferirias {
   text-align: center;
   font-size: 3rem;
   margin-top: 30px;
@@ -26,7 +30,6 @@ h1 {
   -o-transform: scale(1) rotate(0deg) translate(0px, 0px) skew(-5deg, -5deg);
   -ms-transform: scale(1) rotate(0deg) translate(0px, 0px) skew(-5deg, -5deg);
   transform: scale(1) rotate(0deg) translate(0px, 0px) skew(-5deg, -5deg);
-
 }
 
 .questions-container {
@@ -34,6 +37,7 @@ h1 {
   display: flex;
   justify-content: center;
   flex-direction: row;
+
   .question {
     @include span(5);
     font-family: 'Roboto', sans-serif;
@@ -63,12 +67,21 @@ h1 {
       @include push(2);
     }
   }
+
   .question:active {
       -webkit-box-shadow: 0px 3px 0px rgba(5, 121, 219, 1), 0px 3px 6px rgba(0,0,0,.9);
       -moz-box-shadow: 0px 3px 0px rgba(5, 121, 219, 1), 0px 3px 6px rgba(0,0,0,.9);
       box-shadow: 0px 3px 0px rgba(5, 121, 219, 1), 0px 3px 6px rgba(0,0,0,.9);
       position: relative;
-      top: 6px;
+      top: 3px;
+  }
+
+  .question:hover:not(:active) {
+    cursor: pointer;
+    -webkit-transform: translateY(-6px);
+    -webkit-box-shadow: 0px 12px 0px rgba(5, 121, 219, 1), 0px 12px 50px rgba(0,0,0,.7);
+    -moz-bpx-shadow: 0px 12px 0px rgba(5, 121, 219, 1), 0px 12px 50px rgba(0,0,0,.7);
+    box-shadow: 0px 12px 0px rgba(5, 121, 219, 1), 0px 12px 50px rgba(0,0,0,.7);
   }
 
   .question:focus {
@@ -106,6 +119,10 @@ h1 {
   transform: translate(0px,5px);
   -webkit-transform: translate(0px,5px);
 	border-bottom: 1px solid;
+}
+
+.next-question:hover {
+  cursor: pointer;
 }
 
 .next-question:focus {

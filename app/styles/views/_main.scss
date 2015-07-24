@@ -15,6 +15,14 @@
   font-size: 4rem;
   color: white;
   text-decoration: none;
+  color: #EFF7FF;
+  text-shadow: 4px 2px #1E6AC0,
+               0 6px 1px rgba(0, 0, 0, 0.1),
+               0 0 0px rgba(0, 0, 0, 0.1),
+               0 0px 0px rgba(0, 0, 0, 0.2),
+               0 3px 10px rgba(0, 0, 0, 0.25),
+               0 -3px 10px rgba(0, 0, 0, 0.2),
+               0 11px 20px rgba(0, 0, 0, 0.15);
 }
 @import "compass/css3";
 @include keyframes(bounce) {
@@ -39,6 +47,7 @@
   right: 1%;
   color: white;
   font-family: 'Open Sans', sans-serif;
+  font-size: .75rem;
   a {
     text-decoration: none;
     color: white;
