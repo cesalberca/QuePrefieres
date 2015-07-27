@@ -24,6 +24,16 @@
                0 -3px 10px rgba(0, 0, 0, 0.2),
                0 11px 20px rgba(0, 0, 0, 0.15);
 }
+
+@media (max-width: $smallDisplays) {
+  .container-start {
+    @include container(100%);
+  }
+  .start {
+    font-size: 2rem;
+  }
+}
+
 @import "compass/css3";
 @include keyframes(bounce) {
 	0%, 20%, 50%, 80%, 100% {

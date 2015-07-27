@@ -14,7 +14,7 @@
   @include span(6);
   float: none;
 
-  padding: 2rem;
+  padding: 2rem !important;
   border-radius: 5px;
   background-color: white;
 
@@ -37,16 +37,23 @@
     a:hover {
       color: blue;
     }
+
     i {
       padding-right: .75rem;
       color: #55acee;
     }
-    i:hover {
+  }
+}
 
-    }
-    i:visited {
-
-    }
-
+@media (max-width: $smallDisplays) {
+  .type-of-person-container {
+    @include container(100%);
+  }
+  .type-of-person {
+    @include span(10);
+  }
+  .type-of-person p{
+    font-size: 1rem;
+    line-height: 1.25rem;
   }
 }
