@@ -247,7 +247,7 @@ angular.module('quePrefieresApp')
     };
 
     // Timer code
-    $scope.countdownVal = 60;
+    $scope.countdownVal = 45;
     var timerRunning = true;
     var timeStarted = false;
 
