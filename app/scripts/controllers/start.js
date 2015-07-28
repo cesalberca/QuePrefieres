@@ -46,7 +46,7 @@ angular.module('quePrefieresApp')
         score2: 1
       },
       {
-        q1: '¿Tener 3 deseos pero no poder pedir dinero?',
+        q1: '¿Tener 1 deseos pero no poder pedir dinero?',
         q2: '¿Tener un 10 millones de euros?',
         score1: 1,
         score2: 0
@@ -76,8 +76,8 @@ angular.module('quePrefieresApp')
         score2: 0
       },
       {
-        q1: '¿Oler a mierda y no saberlo?',
-        q2: '¿Oler mierda constantemente que nadie más puede oler?',
+        q1: '¿Oler mal y no saberlo?',
+        q2: '¿Oler mal constantemente que nadie más puede oler?',
         score1: 0,
         score2: 1
       },
@@ -100,12 +100,6 @@ angular.module('quePrefieresApp')
         score2: 0
       },
       {
-        q1: '¿Ser fe@ pero inteligente?',
-        q2: '¿Ser guap@ pero tont@?',
-        score1: 1,
-        score2: 0
-      },
-      {
         q1: '¿Que el alchohol o las drogas no te afectasen negativamente?',
         q2: '¿Que la comida insana fuese súper sana y nutritiva?',
         score1: 0,
@@ -120,12 +114,6 @@ angular.module('quePrefieresApp')
       {
         q1: '¿Acabar con el hambre en el mundo?',
         q2: '¿Ser inmortal?',
-        score1: 0,
-        score2: 1
-      },
-      {
-        q1: '¿Tener sexo con una celebridad de tu elección aún estando casado?',
-        q2: '¿O no hacerlo?',
         score1: 0,
         score2: 1
       },
@@ -154,8 +142,8 @@ angular.module('quePrefieresApp')
         score2: 1
       },
       {
-        q1: '¿Aumentar la esperanza de vida de todo el mundo en 10 años a costa de perder la mitad de tus años de vida restantes?',
-        q2: '¿Poder parar el tiempo a conciencia pero reducir tu esperanza de vida a la mitad?',
+        q1: '¿Aumentar la esperanza de vida de todo el mundo en 20 años a costa de perder tú 20 años de vida?',
+        q2: '¿Poder parar el tiempo a conciencia?',
         score1: 1,
         score2: 0
       },
@@ -177,12 +165,12 @@ angular.module('quePrefieresApp')
         score1: 0,
         score2: 1
       },
-      {
-        q1: '¿Salvar a un niño en peligro, pero ser catalogado como pedófilo?',
-        q2: '¿Dejar que el niño muera pero que todo el mundo piense que eres un héroe por haberlo intentado salvar?',
-        score1: 1,
-        score2: 0
-      },
+      // {
+      //   q1: '¿Salvar a un niño en peligro, pero ser catalogado como pedófilo?',
+      //   q2: '¿Dejar que el niño muera pero que todo el mundo piense que eres un héroe por haberlo intentado salvar?',
+      //   score1: 1,
+      //   score2: 0
+      // },
       {
         q1: '¿Poder hablar con los muertos?',
         q2: '¿Poder prevenir muertes?',
